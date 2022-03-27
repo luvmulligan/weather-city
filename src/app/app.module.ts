@@ -8,11 +8,13 @@ import { WeatherComponent } from './weather/weather.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherService } from './weather.service';
+import { TemperatureConverterPipe } from './temperature-converter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherComponent
+    WeatherComponent,
+    TemperatureConverterPipe
   ],
   imports: [
     BrowserModule,
