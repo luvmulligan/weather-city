@@ -57,7 +57,7 @@ export class WeatherComponent implements OnInit {
       this.weatherImageUrl = './assets/010-cloud.png'
     } else if (weatherDescription == 'Thundery outbreaks possible'){
       this.weatherImageUrl = './assets/006-thunder.png'
-    } else if (weatherDescription === 'Light Snow, Snow' || weatherDescription === 'Snow' || weatherDescription === 'Blowing snow' || weatherDescription === 'Blizzard'){
+    } else if (weatherDescription === 'Light Snow, Snow' || weatherDescription === 'Snow' || weatherDescription === 'Blowing snow' || weatherDescription === 'Blizzard' || weatherDescription === 'Snow, Light Snow'){
       this.weatherImageUrl = './assets/005-snow.png'
     } else if (weatherDescription === 'Patchy snow possible'){
       this.weatherImageUrl = './assets/snowing.png'
