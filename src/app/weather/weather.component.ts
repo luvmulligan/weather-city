@@ -31,12 +31,26 @@ export class WeatherComponent implements OnInit {
     this.weatherService.getWeather(formValues.location).subscribe(data => {
       this.weatherData = data;
       console.log(this.weatherData);
-      if(this.weatherData.current.weather_descriptions[0] === 'Clear'){
-        this.weatherImageUrl = './assets/001-sunny.png'
-      }else if (this.weatherData.current.weather_descriptions[0] === 'Fog'){
-        this.weatherImageUrl = './assets/002-cloudy.png'
-      }
+      this.setWeatherImage();
     });
+  }
+  setWeatherImage(){
+    const weatherDescription = this.weatherData.current.weather_descriptions[0]
+    if(weatherDescription === 'Sunny' || weatherDescription === 'Clear'){
+      this.weatherImageUrl = './assets/001-sunny.png'
+    } else if (weatherDescription === 'Partly cloudy'){
+      this.weatherImageUrl = './assets/009-cloudy-2.png'
+    } else if (weatherDescription === 'Shower In Vicinity'){
+      this.weatherImageUrl = './assets/003-rainy.png'
+    } else if (weatherDescription === 'Mist'){
+      this.weatherImageUrl = './assets/drop.png'
+    } else if (weatherDescription === 'Patchy light rain' || weatherDescription === 'Patchy rain possible'){
+      this.weatherImageUrl = './assets/rain.png'
+    } else if (weatherDescription === 'Cloudy' || weatherDescription === 'Fog' || weatherDescription === 'Overcast'){
+      this.weatherImageUrl = './assets/010-cloud.png'
+    } else if (weatherDescription == 'Thundery outbreaks possible'){
+      this.weatherImageUrl = './assets/006-thunder.png'
+    }
   }
 
 }

@@ -4,3 +4,7 @@
 .x-large {
   font-size: xx-large;
 }
+
+.limit-width {
+  max-width: 142px;
+}

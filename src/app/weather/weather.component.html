@@ -1,7 +1,6 @@
-<div class="container">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center pt-3">
     <div class="col-md-6 text-center">
-      <h3>Type the name of a city to check the weather:</h3>
+      <div class="row">
       <form [formGroup]="weatherForm" (ngSubmit)="weatherQuery(weatherForm.value)">
         <div class="form-group">
           <div class="row">
@@ -11,36 +10,41 @@
              type="text"
              id="weatherLocation"
              aria-describedby="weatherLocation"
-             placeholder="Please input a Location"
+             placeholder="Type the name of the city"
              formControlName="location"
            />
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <button type="submit" class="btn btn-white btn-md">
+              <button type="submit" class="btn btn-white btn-md pt-3">
                 <img src="./assets/search.png" style="width: 3rem" alt="Check the weather">
               </button>
             </div>
           </div>
          </div>
        </form>
-       <div class="row">
-         <div class="col">
-          <div *ngIf="weatherData">
-            <h3>Weather Details:</h3>
-            <img src="{{this.weatherImageUrl}}" alt="Weather Description Image" class="weatherImage">
-            <p class="x-large">{{this.weatherData?.current.weather_descriptions[0]}}</p>
-            <p>Temperature in Celsius: </p>
-            <span class="x-large">{{this.weatherData?.current.temperature}} ° </span>
-            <p>Temperature Farenheit:</p>
-            <span class="x-large">{{this.weatherData?.current.feelslike | temperatureConverter  : 'F'}} ° F</span>
-            <p>Feels like in Celsius: {{this.weatherData?.current.feelslike}} °</p>
-            <p>Feels like in Farenheit: {{this.weatherData?.current.feelslike | temperatureConverter  : 'F'}} ° F</p>
-            <p>Location Searched: {{this.weatherData?.location.name}}, {{this.weatherData?.location.country}}</p>
-          </div>
-         </div>
        </div>
-
-  </div>
+       <div class="row justify-content-center" *ngIf="weatherData">
+            <p class="x-large"> {{this.weatherData?.location.name}}, {{this.weatherData?.location.country}}</p>
+            <img src="{{this.weatherImageUrl}}" alt="Weather Description Image" class="weatherImage text-center">
+            <p class="x-large">{{this.weatherData?.current.weather_descriptions[0]}}</p>
+            <div class="col-3 limit-width">
+              <p>Temperature in Celsius: </p>
+              <span class="x-large">{{this.weatherData?.current.temperature}} ° </span>
+            </div>
+            <div class="col-3 limit-width">
+              <p>Temperature Farenheit:</p>
+              <span class="x-large">{{this.weatherData?.current.feelslike | temperatureConverter  : 'F'}} ° F</span>
+            </div>
+            <div class="col-3 limit-width">
+              <p>Feels like in Celsius:</p>
+              <span class="x-large">{{this.weatherData?.current.feelslike}} °</span>
+            </div>
+            <div class="col-3 limit-width">
+            <p>Feels like in Farenheit:</p>
+            <span class="x-large">{{this.weatherData?.current.feelslike | temperatureConverter  : 'F'}} ° F</span>
+          </div>
+        </div>
+    </div>
   </div>
